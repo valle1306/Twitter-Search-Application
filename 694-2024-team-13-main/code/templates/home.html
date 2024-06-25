@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="search-container">
+        <h1>Twitter</h1>
+        <input type="text" id="search-box" placeholder="Search...">
+        <button id="search-btn">Search</button>
+    </div>
+    <div id="results-container">
+        <div id="people-container"></div>
+        <div id="tweets-container"></div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

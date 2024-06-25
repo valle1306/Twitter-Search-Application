@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+#search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#search-box {
+    height: 30px;
+    width: 300px;
+    padding: 5px;
+}
+
+#search-btn {
+    height: 42px;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+#results-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.person {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.tweet {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.tweet:not(:last-child) {
+    border-bottom: none;
+}
+
+.tweet h4 {
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.tweet p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.tweet span {
+    display: block;
+    text-align: right;
+    color: #aaa;
+    font-size: 0.8em;
+}
+
+h1 {
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    #results-container {
+        width: 95%;
+    }
+    .person, .tweet {
+        width: calc(100% - 20px);
+    }
+}
+
+#people-container {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+

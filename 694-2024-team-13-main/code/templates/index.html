@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Search</title>
+    <style>
+        #results { overflow-y: auto; height: 400px; border: 1px solid #ccc; padding: 8px; }
+    </style>
+</head>
+<body>
+    <input type="text" id="search-box" placeholder="Search tweets...">
+    <button onclick="search()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        function search() {
+            var query = document.getElementById('search-box').value;
+            fetch('/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'query=' + encodeURIComponent(query)
+            })
+            .then(response => response.json())
+            .then(data => {
+                var results = document.getElementById('results');
+                results.innerHTML = ''; // Clear old search results
+                data.forEach(tweet => {
+                    var div = document.createElement('div');
+                    div.textContent = tweet.text; // Assuming the returned data contains a 'text' field
+                    results.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        document.getElementById('results').addEventListener('scroll', function() {
+            var element = document.getElementById('results');
+            if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+                // The user has scrolled to the bottom
+                search(); // Call search function again to load more data
+            }
+        });
+    </script>
+</body>
+</html>
