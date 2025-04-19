@@ -1,4 +1,4 @@
-# 🐦 Twitter Search Application
+# Twitter Search Application
 
 ## 📌 What is this project?
 
